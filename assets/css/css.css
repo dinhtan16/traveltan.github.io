@@ -1,0 +1,338 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+--header-height:3rem;
+--first-color:#26a69a;
+--first-color-lighter : #ecf3f2;
+--title-color:#11443f;
+--text-color : #5b7b78;
+--body-color:#F5FFFE;
+
+
+--body-font : 'Poppins' , sans-serif;
+--big-font-size : 3rem;
+--medium-font-size:1.25rem;
+--normal-font-size:.938rem;
+
+
+--z-index-ten:10;
+--z-top:100;
+}
+
+@media screen and (min-width:1024px){
+    :root{
+        --big-font-size : 5.5rem;
+        --medium-font-size:2rem;
+        --normal-font-size:1rem;
+
+    }
+}
+
+body{
+    font-family:var(--body-font);
+    background-color:var(--body-color);
+    font-size: var(--normal-font-size);
+    color: var(--text-color);
+}
+
+h1,h2,ul,p{
+    margin:0;
+}
+ul{
+    padding:0;
+    list-style: none;
+}
+a{
+    text-decoration: none ;
+}
+img{
+    max-width:100%;
+    height: auto;
+}
+
+
+
+.main{
+    position: relative;
+}
+
+
+.bd-container{
+    max-width:968px;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+
+.header{
+    width: 100%;
+    position:fixed;
+    top: 0;
+    left:0;
+    z-index: var(--z-top);
+}
+
+
+.nav{
+    max-width: 968px;
+    height: var(--header-height);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+
+@media screen and (max-width:768px){ 
+    .nav__menu{ 
+        position: fixed;
+        top: -100%;
+        left: 0;
+        right:0;
+        width: 90%;
+        text-align: center;
+        margin: 0 auto;
+        padding-top: 1.5rem;
+        background-color:var(--first-color-lighter);
+        border-radius: 10px;
+        transition: all 0.4s ease;
+    }
+    .nav__link{
+        color: var(--title-color);
+        font-weight: 600;
+    }
+    .nav__toggle{
+        display: block;
+    }
+}
+
+
+.nav__link{
+    color: var(--title-color);
+    /* font-weight: 600; */
+}
+.nav__item{
+    margin-bottom: 1.5rem;
+}
+.nav__toggle,.nav__logo{
+    cursor: pointer;
+    font-size: 1.3rem;
+    color: white;
+}
+
+.show-menu{
+    top: calc(var(--header-height) + 1rem);
+}
+
+
+.islands{
+    height: 100vh;position: relative;
+}
+.islands__bg{
+    position: absolute;
+    top: 0;left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center;
+}
+.islands__container{
+    position: relative;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 2fr .25fr;
+    align-content: center;
+}
+
+.islands__title,.islands_subtitle,.islands_des{
+color: var(--first-color-lighter);
+}
+.islands__title{
+    font-size: var(--big-font-size);
+}
+.islands_subtitle{
+    font-size: var(--medium-font-size);
+    font-weight: 500;
+}
+.islands_des{
+margin-bottom: 1rem;
+max-width:400px;
+}
+.isliands__button{
+display:inline-flex;
+align-items:center;
+background-color: var(--first-color-lighter);
+color: var(--first-color);
+padding:1rem 1.5rem;
+border-radius: .5rem;
+font-weight: 600;
+}
+.islands__btn-icon{
+    font-size: 1rem;
+    margin-left: .5rem;
+    transition:all 0.3s ease;
+}
+.isliands__button:hover .islands__btn-icon{
+    margin-left: .9rem;
+
+}
+.islands__video{
+    display:flex;
+    align-items: flex-end;
+    padding-bottom: .75rem;
+}
+.islands__video-content{
+    display:inline-flex;
+    padding:.65rem;
+    background-color:var(--first-color-lighter);
+    border-radius:50%;
+    cursor: pointer;
+    box-shadow: 4px -1px 47px 3px rgba(0,0,0,0.35);
+    transition: transform 0.3s ease;
+}
+.islands__video-content:hover{
+    transform: scale(1.2);
+}
+.islands__video-icon{
+    font-size: 1.8rem;
+    color:var(--first-color);
+}
+
+.islands__popup{
+    opacity: 0;
+    visibility:hidden;
+    user-select: none;
+    position: absolute;
+    top: 150%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color:var(--first-color-lighter);
+    padding:1rem .75rem;
+    border-radius:1rem;
+    transition: all 0.3s ease;
+    
+}
+.show-popup{
+    top: 50%;
+
+    opacity: 1;
+    visibility:visible;
+    user-select: auto;
+}
+.islands__popup-close{
+    position:absolute;
+    top: -.75rem;
+    right:-.75rem;
+    display:inline-flex;
+    padding: .55rem;
+    width: 30px;
+    height: 30px;
+    justify-content:center;
+    align-items:center;
+    background-color:var(--first-color);
+    color: var(--first-color-lighter);
+    font-size: 1.2rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.islands_popup-video{
+    width: 50vw;
+    height: 50vh;
+}
+
+
+
+.controls__img{
+    width: 65px;
+    height: 45px;
+    border-radius:.5rem;cursor: pointer;
+}
+.controls{
+    position:absolute;
+    bottom:2rem;
+    left: 50%;
+    transform:translateX(-50%);
+    padding:15px;
+
+    background-color:var(--first-color-lighter);
+    z-index: var(--z-top);
+    overflow:hidden;
+    border-radius:.75rem;
+}
+.controls__container{
+    display:flex;
+    align-items:center;
+    column-gap: 1rem;
+}
+
+
+
+.swiper-slide-thumb-active{
+    width: 75px;
+    height: 55px;
+}
+
+
+@media screen and (max-width:480px){
+    .controls{
+        bottom:5px;
+    }
+}
+
+@media screen and (min-width:768px){
+    .nav{
+        height: calc(var(--header-height) + 1.5rem);
+    }
+    .nav__list{
+        display:flex;
+    }
+    .nav__item{
+        margin-right: 2rem;
+        margin-bottom: 0;
+    }
+    .nav__link{
+        color: var(--first-color-lighter);
+    }
+    .nav__toggle{
+        display:none;
+    }
+    .islands__container{
+        grid-template-columns: repeat(2,1fr);
+    }
+    .islands_des{
+        padding-right: 5rem;margin-bottom: 2rem;
+    }
+    .islands__video{
+        justify-content:center;
+        align-items: center;
+    }
+    .islands__data{
+        min-width: 968px;
+    }
+    .islands__video-content i{
+        font-size: 3rem;
+    }
+}
+@media screen and (min-width:1024px){
+    .bd-container{
+        margin-right: auto;
+        margin-left: auto;
+
+    }
+    .islands_des{
+
+        padding-right: 11rem;
+    }
+    
+}
+
+
+/* @media screen and (min-height:721px) {
+    .islands{
+        height:640px;
+    }
+} */
